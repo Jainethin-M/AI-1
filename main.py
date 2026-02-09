@@ -5,6 +5,9 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 load_dotenv()
 
+from geminiAIlist import list_gemini_models
+
+
 def main():
     # Gemini model (choose one that exists in your account, common: "gemini-1.5-flash")
     model = ChatGoogleGenerativeAI(
@@ -15,7 +18,8 @@ def main():
 )
 
 
-    tools = []
+    tools = [list_gemini_models]
+    # tools=[]
     agent_executor = create_react_agent(model, tools)
 
     print("Welcome to the React Agent! Type 'exit' to quit Gemini.")
